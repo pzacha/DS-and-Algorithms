@@ -1,7 +1,8 @@
 class Node:
-    def __init__(self, data = None):
+    def __init__(self, data=None):
         self.data = data
         self.next = None
+
 
 class SLinkedList:
     def __init__(self):
@@ -9,7 +10,7 @@ class SLinkedList:
 
     def traverse(self):
         n = self.head
-        while(n != None):
+        while n != None:
             print(n.data)
             n = n.next
 
@@ -24,7 +25,7 @@ class SLinkedList:
             self.head = n
             return
         last_node = self.head
-        while(last_node.next != None):
+        while last_node.next != None:
             last_node = last_node.next
         last_node.next = n
 
