@@ -33,13 +33,29 @@ class Graph:
         visited.append(start)
         for vrtx in self.adj_list[start]:
             if vrtx not in visited:
-                self.dfs(vrtx)
+                self.dfs(vrtx, visited)
         return visited
+
+    def bfs(self, start):
+        visited = []
+        queue = []
+        queue.insert(0, start)
+        visited.append(start)
+        while queue:
+            next = queue.pop()
+            for vrtx in self.adj_list[next]:
+                if vrtx not in visited:
+                    visited.append(vrtx)
+                    queue.insert(0, vrtx)
+        return visited
+
+
 
 g = Graph({"a" : ["b","c"], "b" : ["a", "d"], "c" : ["a", "d"], "d" : ["e"], "e" : ["d"]})
 
-print(g.get_edges())
+print("List of edges: ", g.get_edges())
 g.add_edge("a", "d")
-print(g.adj_list)
-print(g.dfs('a'))
+print("Added edge a-d: ", g.adj_list)
+print("Depth-first search: ", g.dfs('a'))
+print("Breadth-first search: ", g.bfs('a'))
 
