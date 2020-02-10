@@ -29,9 +29,17 @@ class Graph:
             self.adj_list[vrtx2] += vrtx1
             self.adj_list[vrtx2] = sorted(self.adj_list[vrtx2])
 
+    def dfs(self, start, visited = []):
+        visited.append(start)
+        for vrtx in self.adj_list[start]:
+            if vrtx not in visited:
+                self.dfs(vrtx)
+        return visited
+
 g = Graph({"a" : ["b","c"], "b" : ["a", "d"], "c" : ["a", "d"], "d" : ["e"], "e" : ["d"]})
 
 print(g.get_edges())
 g.add_edge("a", "d")
 print(g.adj_list)
+print(g.dfs('a'))
 
