@@ -1,8 +1,7 @@
-# Project Name
-> DS and algorithms
+# DS and algorithms
 
 ## General info
-Python implementation of data structures and common algorithms. Created to revise theory.
+Python implementation of data structures and common algorithms.
 
 ## Technologies
 * python 3.8.0
