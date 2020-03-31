@@ -1,3 +1,6 @@
+import unittest
+
+
 def palindrome_permutation(s: str) -> bool:
     char_dict = {}
     uneven = 0
@@ -15,4 +18,18 @@ def palindrome_permutation(s: str) -> bool:
     return True
 
 
-print(palindrome_permutation("abcd c a bed"))
+class Test(unittest.TestCase):
+    dataT = [("abcd c a bed"), ("doggydogg")]
+    dataF = [("america"), ("cook")]
+
+    def test_unique(self):
+        # true check
+        for test_string in self.dataT:
+            self.assertTrue(palindrome_permutation(test_string))
+        # false check
+        for test_string in self.dataF:
+            self.assertFalse(palindrome_permutation(test_string))
+
+
+if __name__ == "__main__":
+    unittest.main()

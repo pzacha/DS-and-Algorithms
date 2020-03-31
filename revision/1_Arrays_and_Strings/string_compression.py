@@ -1,3 +1,6 @@
+import unittest
+
+
 def string_compression(s: str) -> str:
     output = ""
     count = 1
@@ -21,3 +24,23 @@ def string_compression(s: str) -> str:
 
 print(string_compression("aaaaaaaassdcfeecdd"))
 print(string_compression("aaassdcfeecdd"))
+
+
+class Test(unittest.TestCase):
+    """Test Cases"""
+
+    data = [
+        ("aabcccccaaa", "a2b1c5a3"),
+        ("abcdef", "abcdef"),
+        ("aaaaaaaassdcfeecdd", "a8s2d1c1f1e2c1d2"),
+        ("aaassdcfeecdd", "aaassdcfeecdd"),
+    ]
+
+    def test_string_compression(self):
+        for [test_string, expected] in self.data:
+            actual = string_compression(test_string)
+            self.assertEqual(actual, expected)
+
+
+if __name__ == "__main__":
+    unittest.main()

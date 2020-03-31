@@ -37,7 +37,18 @@ def one_away(s1: str, s2: str) -> bool:
             return len_diff(s2, s1)
 
 
-print(one_away("pale", "ple"))
-print(one_away("pale", "pales"))
-print(one_away("pale", "bale"))
-print(one_away("pale", "bae"))
+class Test(unittest.TestCase):
+    dataT = [["pale", "ple"], ["pale", "pales"], ["pale", "bale"]]
+    dataF = [["pale", "bae"], ["sscx", "asdasdasd"], ["ssc", "scsa"]]
+
+    def test_unique(self):
+        # true check
+        for test_strings in self.dataT:
+            self.assertTrue(one_away(test_strings[0], test_strings[1]))
+        # false check
+        for test_strings in self.dataF:
+            self.assertFalse(one_away(test_strings[0], test_strings[1]))
+
+
+if __name__ == "__main__":
+    unittest.main()
