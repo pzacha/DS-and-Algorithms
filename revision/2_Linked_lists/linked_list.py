@@ -36,3 +36,12 @@ class SLinkedList:
         while last_node.next != None:
             last_node = last_node.next
         last_node.next = n
+
+    def __len__(self):
+        l = 0
+        n = self.head
+        while n:
+            l += 1
+            n = n.next
+
+        return l

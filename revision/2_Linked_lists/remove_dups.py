@@ -22,12 +22,12 @@ class Test(unittest.TestCase):
     lin_list.insert_at_end(7)
     lin_list.insert_at_end(2)
     lin_list.insert_at_end(3)
-    data_after = [5, 2, 7, 3]
+    expected = [5, 2, 7, 3]
 
     def test_remove_dups(self):
-        expected = remove_dups(self.lin_list)
-        expected = expected.to_list()
-        self.assertEqual(self.data_after, expected)
+        calculated = remove_dups(self.lin_list)
+        calculated = calculated.to_list()
+        self.assertEqual(self.expected, calculated)
 
 
 if __name__ == "__main__":
