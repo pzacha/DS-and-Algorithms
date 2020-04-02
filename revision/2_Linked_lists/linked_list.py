@@ -22,7 +22,7 @@ class SLinkedList:
             n = n.next
         return output
 
-    def insert_at_begining(self, d):
+    def insert_at_beginning(self, d):
         n = Node(d)
         n.next = self.head
         self.head = n
@@ -36,6 +36,10 @@ class SLinkedList:
         while last_node.next != None:
             last_node = last_node.next
         last_node.next = n
+
+    def insert_vals_at_end(self, vals):
+        for val in vals:
+            self.insert_at_end(val)
 
     def __len__(self):
         l = 0

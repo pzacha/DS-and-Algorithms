@@ -21,7 +21,7 @@ class Test(unittest.TestCase):
     lin_list.insert_at_end(4)
     lin_list.insert_at_end(5)
 
-    def test_remove_dups(self):
+    def test_kth_to_last(self):
         calculated = kth_to_last(self.lin_list, 2)
         self.assertEqual(calculated.data, 4)
 
