@@ -24,8 +24,11 @@ class SLinkedList:
 
     def insert_at_beginning(self, d):
         n = Node(d)
-        n.next = self.head
-        self.head = n
+        if self.head is None:
+            self.head = n
+        else:
+            n.next = self.head
+            self.head = n
 
     def insert_at_end(self, d):
         n = Node(d)
