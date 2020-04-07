@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, data = None):
+    def __init__(self, data=None):
         self.data = data
         self.left = None
         self.right = None
@@ -24,7 +24,7 @@ class Node:
             if data == self.data:
                 print(str(data) + " found")
             elif data < self.data:
-                if self.left: 
+                if self.left:
                     self.left.find(data)
                 else:
                     print(str(data) + " not found")
@@ -39,36 +39,41 @@ class Node:
             print(str(data) + " not found")
             return
 
-    
-    #Left --> Root --> Right
-    def in_order_traversal(self):
+    # Left --> Root --> Right
+    def in_order_traversal(self, output):
         if self:
-            if self.left: self.left.in_order_traversal()
-            print(self.data)
-            if self.right: self.right.in_order_traversal()
+            if self.left:
+                self.left.in_order_traversal(output)
+            output.append(self.data)
+            if self.right:
+                self.right.in_order_traversal(output)
 
-    #Root --> Left --> Right
+    # Root --> Left --> Right
     def pre_order_traversal(self):
         if self:
             print(self.data)
-            if self.left: self.left.in_order_traversal()
-            if self.right: self.right.in_order_traversal()
+            if self.left:
+                self.left.in_order_traversal()
+            if self.right:
+                self.right.in_order_traversal()
 
-    #Left --> Right --> Root
+    # Left --> Right --> Root
     def post_order_traversal(self):
         if self:
-            if self.left: self.left.in_order_traversal()
-            if self.right: self.right.in_order_traversal()
+            if self.left:
+                self.left.in_order_traversal()
+            if self.right:
+                self.right.in_order_traversal()
             print(self.data)
 
 
-root = Node(10)
-[root.insert(i) for i in range(2,19,3)]
+# root = Node(10)
+# [root.insert(i) for i in range(2,19,3)]
 
-root.in_order_traversal()
-print()
-root.pre_order_traversal()
-print()
-root.post_order_traversal()
+# root.in_order_traversal()
+# print()
+# root.pre_order_traversal()
+# print()
+# root.post_order_traversal()
 
-root.find(4)
+# root.find(4)

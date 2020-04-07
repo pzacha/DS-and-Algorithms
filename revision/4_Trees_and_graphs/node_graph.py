@@ -8,9 +8,6 @@ class Node:
         self.adjacent = []
         self.visited = False
 
-    def __str__(self):
-        return str(self.id) + ' adjacent: ' str([a.id for a in self.adjacent])
-    
     def add_adjacent(self, n):
         if n not in self.adjacent:
             self.adjacent.append(n)
@@ -29,15 +26,14 @@ class Graph:
             self.add_node(frm)
         if to not in self.nodes:
             self.add_node(to)
-        
+
         frm.add_adjacent(to)
 
     def dfs(self, n):
         n.visited = True
         for a in n.adjacent:
-            if a.visited = False:
-                dfs(a)
-            
+            if a.visited == False:
+                self.dfs(a)
 
     def is_empty(self):
         if len(self.nodes) == 0:
