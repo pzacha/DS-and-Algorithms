@@ -5,18 +5,21 @@ from minimal_tree import minimal_tree
 
 
 def val_bst(n):
-    output = []
+    previous = None
 
-    def val_bst_rec(n, output):
+    def val_bst_rec(n, previous):
         if n:
             if n.left:
-                val_bst_rec(n.left, output)
-            output.append(n.data)
+                val_bst_rec(n.left, previous)
+            if previous == None or previous <= n.data:
+                previous = n.data
+            else:
+                return False
             if n.right:
-                val_bst_rec(n.right, output)
+                val_bst_rec(n.right, previous)
 
-    val_bst_rec(n, output)
-    return output
+    val_bst_rec(n, previous)
+    return True
 
 
 class Test(unittest.TestCase):
@@ -26,7 +29,7 @@ class Test(unittest.TestCase):
     output = val_bst(bst)
 
     def test_validate_bst(self):
-        self.assertEqual([1, 4, 5, 6, 9, 11, 14, 15, 15, 21, 23], self.output)
+        self.assertEqual(True, self.output)
 
 
 if __name__ == "__main__":
